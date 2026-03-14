@@ -1,5 +1,17 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface LayoutBanner extends Struct.ComponentSchema {
+  collectionName: 'components_layout_banners';
+  info: {
+    displayName: 'Banner';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    isVisible: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    link: Schema.Attribute.Component<'shared.link', false>;
+  };
+}
+
 export interface SharedLink extends Struct.ComponentSchema {
   collectionName: 'components_shared_links';
   info: {
@@ -30,6 +42,7 @@ export interface SharedLogoLink extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'layout.banner': LayoutBanner;
       'shared.link': SharedLink;
       'shared.logo-link': SharedLogoLink;
     }
