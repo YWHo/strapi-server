@@ -16,6 +16,11 @@
     },
     "description": {
       "type": "text"
+    },
+    "banner": {
+      "type": "component",
+      "component": "layout.banner",
+      "repeatable": false
     }
   }
 }
