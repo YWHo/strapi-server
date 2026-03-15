@@ -12,6 +12,19 @@ export interface LayoutBanner extends Struct.ComponentSchema {
   };
 }
 
+export interface LayoutFooter extends Struct.ComponentSchema {
+  collectionName: 'components_layout_footers';
+  info: {
+    displayName: 'Footer';
+  };
+  attributes: {
+    logo: Schema.Attribute.Component<'shared.logo-link', false>;
+    navItems: Schema.Attribute.Component<'shared.link', true>;
+    socialLinks: Schema.Attribute.Component<'shared.logo-link', true>;
+    text: Schema.Attribute.Text;
+  };
+}
+
 export interface LayoutHeader extends Struct.ComponentSchema {
   collectionName: 'components_layout_headers';
   info: {
@@ -55,6 +68,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'layout.banner': LayoutBanner;
+      'layout.footer': LayoutFooter;
       'layout.header': LayoutHeader;
       'shared.link': SharedLink;
       'shared.logo-link': SharedLogoLink;
